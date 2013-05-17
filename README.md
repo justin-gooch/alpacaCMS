@@ -41,7 +41,4 @@ submitReply.php: page that accepts replies to forum posts
 template.php:general template added for general pages to be added. basically includes header and footer
 
 
-test.php: I forgot the purpose of this one...
-
-
 viewThread.php: view thread when clicked on. can submit replies through submitReply.php
