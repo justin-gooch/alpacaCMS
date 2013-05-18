@@ -1,0 +1,72 @@
+changelog
+
+5-8-13 7:58 am
+
+added submitPost.php: submits get data as thread
+added script.js: 2 functions so far, 1. makes all links with the id "loadMe" use ajax "load" method for loading
+added forum.php: thus far form that sends data via get link through jquery "load" method. jquery located in script.js
+updated header.php: added welcome message into hidden div, then used data of welcome message to rid repeated data error, 
+	created sub body div named pagediv to allow for easy jquery linking
+	
+needs Fixed:
+	-constant reloading bug: when submitting form data (chrome and firefox) the form submits a blank form multiple times
+		possible resolution: limit load functionality by unix timestamp
+		
+	 IE toolbar duplication: when loading ajax'd pages, page fails to load in IE, displays duplicate of header even with "include once"
+		possible resolution: add proper html markup
+			honest resolution: switch to a better browser
+			
+	persona login failure: unless initial page, cannot log in with persona in firefox or chrome once visiting jquery'd pages
+		possible resolution: don't use that which you don't understand.
+		
+needs tested:
+	security of persona
+	
+	stress test of system
+	
+To Do:
+	-solve persona bug
+		see if changing from include_once to require_once for the scripts avoids the repeated data bug that was present. 
+	-see if I solve constant reload bug...
+		resolution should be. see if data exists within div, if so, load div, if not, don't load
+		should be resolved, needs tested
+		
+	
+	-figure out how to increment given sql data for use in thread number
+	
+	call data in main forum page
+		create algorithm to sort by latest post etc. 
+	
+	plan logic for "multiple forums"
+		possible solution: multiple tables, shown by user privilege, etc
+		
+	
+for now only fantasy
+	add profile pictures
+	
+	add unique usernames
+	
+	add titles in forum
+	
+	use feeltronic source, ajax it up; give jack ajax'd up source, add options for verified members to upload videos
+	
+	
+5-8-13 6:23 pm update
+
+fixed:
+
+	constant reload bug resolved, added if statement and made page only work with ajax style 
+	
+	persona bug resolved solution was to make pages only contain needed information instead of contantly reloading through include since
+		jquery doesn't handle it very well
+		
+	added sql field incrementer for thread id. 
+	
+	
+	
+
+	
+
+		
+	
+	
