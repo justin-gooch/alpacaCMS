@@ -51,14 +51,18 @@ if ($_POST['action'] == 'login')
 			$result = $preparedStatement->fetchAll(PDO::FETCH_ASSOC);
 			$permissionArray = array();
 			$nicknameArray = array();
+			$idArray = array();
 			foreach($result as $row)
 			{
-				array_push($permissionArray, $row['permission'];
-				array_push($nicknameArray, $row['nickname'];
+				array_push($permissionArray, $row['permission']);
+				array_push($nicknameArray, $row['nickname']);
+				array_push($idArray, $row['id']);
 				
 			}
 			$_SESSION['permission'] = $permissionArray[0];
 			$_SESSION['nickname'] = $nicknameArray[0];
+			$_SESSION['userId'] = $idArray[0];
+			
 		}
 				
 			

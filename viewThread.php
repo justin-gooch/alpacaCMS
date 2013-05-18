@@ -20,6 +20,7 @@ $isOPArray = array();
 $usernameArray = array();
 $titleArray = array();
 
+
 //put all mysql results into rows. 
 foreach($result as $row)
 {
@@ -41,16 +42,23 @@ $isOPArray = array_reverse($isOPArray);
 $usernameArray = array_reverse($usernameArray);
 $titleArray = array_reverse($titleArray);
 
+//get title
+$title = $titleArray[0];
+
+echo "<h1 class='offset5'>";
+echo $title;
+echo "</h1>";
 $i = 0;
 //show all forum replies. 
-echo "<table class='table table-hover table-bordered table-condensed span9 offset3'><thead><tr><th>Post Id#</th><th>User Name</th><th>Content</th></tr></thead>";
+echo "<table class='table table-hover table-bordered table-condensed span9 offset3'><thead><tr><th>User Name</th><th>Content</th></tr></thead>";
 
 while($i < count($idArray))
 {
 	echo "<tr><td>";
+	echo $usernameArray[$i];	
+	echo "<br>";
+	echo "Post # ";
 	echo $idArray[$i];
-	echo "</td><td>";
-	echo $usernameArray[$i];
 	echo "</td><td>";
 	echo $contentArray[$i];
 	echo "</td></tr>";

@@ -39,7 +39,7 @@ $(document).on('click', '#submitNewThread', function(){
 $(document).on('click', '#replyToThread', function(){
 	replyText = $('#replyText').val();
 	replyTextUrlArray = replyText.split(' ');
-	replytext = replyTextUrlArray.join("%20");
+	replyText = replyTextUrlArray.join("%20");
 	replyLink = 'submitReply.php?submitReply=' + replyText;
 	$('#pageDiv').empty();
 	if($('#pageDiv').html() == '')

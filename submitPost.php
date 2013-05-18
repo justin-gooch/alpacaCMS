@@ -7,6 +7,7 @@ include_once "pdoInclude.php";
 $postTitle = $_GET["postTitle"];
 $postText = $_GET["postText"];
 $userEmail = $_SESSION["email"];
+$nickname = $_SESSION['nickname'];
 
 //if user logged in
 if($_SESSION['logged'] == true)
@@ -25,11 +26,12 @@ if($_SESSION['logged'] == true)
 		
 		
 		//insert new information into database accordingly
-		$sql = "INSERT INTO `ForumThreads` (`id`, `threadId`, `content`, `permission`, `isOP`, `username`, `title`, `op`) VALUES(NULL, '$rowCount', '$postText', '0', '1', '$userEmail', '$postTitle', '$userEmail')";
+		$sql = "INSERT INTO `ForumThreads` (`id`, `threadId`, `content`, `permission`, `isOP`, `username`, `title`, `op`) VALUES(NULL, '$rowCount', '$postText', '0', '1', '$nickname', '$postTitle', '$nickname')";
 		error_log($sql);
 		$preparedStatement = $PDO->prepare($sql);
 		$preparedStatement->execute();
-		echo $postText;
+		echo "Post submitted successfully";
+		echo "<a id='loadMe' href='forum.php'>Return</a>";
 	}
 	else
 	{

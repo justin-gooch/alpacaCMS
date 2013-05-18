@@ -12,11 +12,11 @@ needs Fixed:
 	-constant reloading bug: when submitting form data (chrome and firefox) the form submits a blank form multiple times
 		possible resolution: limit load functionality by unix timestamp
 		
-	 IE toolbar duplication: when loading ajax'd pages, page fails to load in IE, displays duplicate of header even with "include once"
+	 -IE toolbar duplication: when loading ajax'd pages, page fails to load in IE, displays duplicate of header even with "include once"
 		possible resolution: add proper html markup
 			honest resolution: switch to a better browser
 			
-	persona login failure: unless initial page, cannot log in with persona in firefox or chrome once visiting jquery'd pages
+	-persona login failure: unless initial page, cannot log in with persona in firefox or chrome once visiting jquery'd pages
 		possible resolution: don't use that which you don't understand.
 		
 needs tested:
@@ -34,7 +34,7 @@ To Do:
 	
 	-figure out how to increment given sql data for use in thread number
 	
-	call data in main forum page
+	-call data in main forum page
 		create algorithm to sort by latest post etc. 
 	
 	plan logic for "multiple forums"

@@ -42,3 +42,10 @@ template.php:general template added for general pages to be added. basically inc
 
 
 viewThread.php: view thread when clicked on. can submit replies through submitReply.php
+
+css Directory: contains bootstrap css
+
+img directory: contains bootstrap images
+
+js directory: contains bootstrap related javascript. 
+
