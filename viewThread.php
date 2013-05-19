@@ -34,13 +34,13 @@ foreach($result as $row)
 }
 
 //reverse the arrays for proper placement in thread...
-$idArray = array_reverse($idArray);
-$threadIdArray = array_reverse($threadIdArray);
-$contentArray = array_reverse($contentArray);
-$permissionArray = array_reverse($permissionArray);
-$isOPArray = array_reverse($isOPArray);
-$usernameArray = array_reverse($usernameArray);
-$titleArray = array_reverse($titleArray);
+//$idArray = array_reverse($idArray);
+//$threadIdArray = array_reverse($threadIdArray);
+//$contentArray = array_reverse($contentArray);
+//$permissionArray = array_reverse($permissionArray);
+//$isOPArray = array_reverse($isOPArray);
+//$usernameArray = array_reverse($usernameArray);
+//$titleArray = array_reverse($titleArray);
 
 //get title
 $title = $titleArray[0];

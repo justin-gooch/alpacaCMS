@@ -3,12 +3,15 @@
 session_start();
 include_once "pdoInclude.php";
 
-
+$userPermission = $_SESSION['permission'];
 $postTitle = $_GET["postTitle"];
 $postText = $_GET["postText"];
 $userEmail = $_SESSION["email"];
 $nickname = $_SESSION['nickname'];
+$userId = $_SESSION['userId'];
 
+if($userPermission > 0)
+{
 //if user logged in
 if($_SESSION['logged'] == true)
 {
@@ -26,12 +29,12 @@ if($_SESSION['logged'] == true)
 		
 		
 		//insert new information into database accordingly
-		$sql = "INSERT INTO `ForumThreads` (`id`, `threadId`, `content`, `permission`, `isOP`, `username`, `title`, `op`) VALUES(NULL, '$rowCount', '$postText', '0', '1', '$nickname', '$postTitle', '$nickname')";
+		$sql = "INSERT INTO `ForumThreads` (`id`, `threadId`, `content`, `permission`, `isOP`, `username`, `userId`, `title`, `op`) VALUES(NULL, '$rowCount', '$postText', '0', '1', '$nickname', '$userId', '$postTitle', '$nickname')";
 		error_log($sql);
 		$preparedStatement = $PDO->prepare($sql);
 		$preparedStatement->execute();
 		echo "Post submitted successfully";
-		echo "<a id='loadMe' href='forum.php'>Return</a>";
+		echo "<br><button id='loadMe' href='forum.php'>Return</button>";
 	}
 	else
 	{
@@ -43,5 +46,10 @@ else
 {
 	echo "please log in to post on this forum";
 	
+}
+}
+else
+{
+	echo "you do not have permission to post yet, please change your username";
 }
 ?>

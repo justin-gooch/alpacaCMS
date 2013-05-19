@@ -39,8 +39,8 @@ foreach($result as $row)
 $arrayLength = count($idArray);
 //$arrayLength--;
 $doesMatch = false;
-//set number of threads shown. 
-$numberOfThreads = 11;
+//set number of threads shown, currently set to arbitrary number as is not needed at the moment...
+$numberOfThreads = 999;
 $numberOfThreadsIterator = 0;
 
 while($arrayLength >= 0)
@@ -50,8 +50,10 @@ while($arrayLength >= 0)
 		$doesMatch = false;
 		$currentThreadId = $threadIdArray[$arrayLength];
 		$i = 0;
+		//iterates through array of threads to make sure that thread is original thread.
 		while($i<= count($currentThreadsArray))
 		{
+			//if current thread id has been repeated(a.e. makes sure forum doesn't post same thread twice.)
 			if($currentThreadId == $currentThreadsArray[$i])
 			{
 				$doesMatch = true;
@@ -90,6 +92,8 @@ while($i > 0)
 		echo $titleArray[$preprocessedLocation];
 		echo "</td><td>";
 		echo $usernameArray[$preprocessedLocation];
+		echo "<br>";
+		echo $idArray[$preprocessedLocation];
 		echo "</td></tr>";
 		$i--;	
 		$k++;

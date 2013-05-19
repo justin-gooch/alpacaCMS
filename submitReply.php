@@ -6,6 +6,10 @@ $threadNumber = $_SESSION['postToThread'];
 $userPermission = $_SESSION['permission'];
 $threadReply = $_GET['submitReply'];
 $nickname = $_SESSION['nickname'];
+$userId = $_SESSION['userId'];
+
+if($userPermission > 0)
+{
 
 if($threadNumber > 0)
 {
@@ -34,12 +38,18 @@ if($threadNumber > 0)
 		$permission = $permissionArray[0];
 		
 		 
-		$sql = "INSERT INTO `ForumThreads` (`id`, `threadId`, `content`, `permission`, `isOP`, `username`, `title`, `op`) VALUES(NULL, '$threadNumber', '$threadReply', '$permission', '0', '$nickname', '$title', '$op')";
+		$sql = "INSERT INTO `ForumThreads` (`id`, `threadId`, `content`, `permission`, `isOP`, `username`, `userId`, `title`, `op`) VALUES(NULL, '$threadNumber', '$threadReply', '$permission', '0', '$nickname', '$userId', '$title', '$op')";
 		$preparedStatement = $PDO->prepare($sql);
 		$preparedStatement->execute();
 		error_log($sql);
 		
-		echo "Reply Submitted successfully";
+		//link back to thread
+		$viewThreadLink = "viewThread.php?threadNumber=";
+		$viewThreadLink = $viewThreadLink . $threadNumber;
+		echo "Post submitted successfully";
+		echo "<br><button id='loadMe' href='";
+		echo $viewThreadLink;
+		echo "'>Return</button>";
 	}
 	else
 	{
@@ -50,6 +60,12 @@ if($threadNumber > 0)
 else
 {
 	echo "you don't have permission to view this thread";
+}
+
+}
+else
+{
+	echo "you do not have permission to post yet, please change your username";
 }
 ?>
 		

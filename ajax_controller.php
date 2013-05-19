@@ -44,6 +44,7 @@ if ($_POST['action'] == 'login')
 			//prepare statement
 			$prepared_insert_statement = $PDO->prepare($sql);
 			$prepared_insert_statement->execute();
+			$_SESSION['permission'] = 0;
 		}
 		else
 		{
