@@ -62,6 +62,36 @@ fixed:
 		
 	added sql field incrementer for thread id. 
 	
+5-19-13 8:29 pm
+	added viewed threads option which highlights in "smoke white" which threads have and have not been viewed. 
+	
+	reply for individual threads and creating threads works
+	
+	still need to create profile for individual users. 
+	
+	still need to add security against malicious html to forum posts and replies (server side)
+	
+	perhaps have forums listed by permission. so that way there are private and public forums. 
+	
+	having profile pictures may be unneccissary but it may make the experience better over all. 
+	
+current goals (in order)
+	get profile working
+	
+	figure out different setting options for profile (decide how far we are going with profiles) 
+	
+	create definition of user powers
+	
+	add blog post type deal by officer rank that uploads on main page. 
+	
+	add calendar
+	
+	add youtube playlist uploadable by rank 3+ individuals. 
+	
+	update design principles of site
+	
+	
+	
 	
 	
 
