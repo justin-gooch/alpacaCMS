@@ -5,6 +5,15 @@ $threadNumber = $_GET['threadNumber'];
 
 $_SESSION['postToThread'] = $threadNumber;
 
+
+//get viewed threads so user can see which threads they have already viewed
+$userId = $_SESSION['userId'];
+$sql = "SELECT `threadList` FROM `threadsViewedTable` WHERE `userId` = '$userId'";
+$preparedStatement = $PDO->prepare($sql);
+$preparedStatement->execute();
+$viewedThreads = $preparedStatement->fetchColumn();
+
+
 //get all replies to thread
 $sql = "SELECT * FROM `ForumThreads` WHERE `threadId` = '$threadNumber'";
 $preparedStatement = $PDO->prepare($sql);
@@ -45,6 +54,8 @@ foreach($result as $row)
 //get title
 $title = $titleArray[0];
 
+$title = strtoupper($title);
+
 echo "<h1 class='offset5'>";
 echo $title;
 echo "</h1>";
@@ -62,10 +73,22 @@ while($i < count($idArray))
 	echo "</td><td>";
 	echo $contentArray[$i];
 	echo "</td></tr>";
-	$i++;}
+	$i++;
+}
 
 echo "</table>"; 
-
+$i--;
+if(in_array($idArray[$i], $viewedThreads))
+{
+	//do nothing
+}
+else
+{
+	$viewedThreads = $viewedThreads. ":" . $idArray[$i];
+	$sql = "UPDATE `threadsViewedTable` SET `threadList` = '$viewedThreads' WHERE `userId` = '$userId'";
+	$preparedStatement = $PDO->prepare($sql);
+	$preparedStatement->execute();
+}
 //submit reply
 echo '<h1 class="offset5 span3">Reply</h1>
 <textarea class="offset5" rows="3" id="replyText" placeholder="Reply Text Goes Here"></textarea>
