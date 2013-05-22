@@ -76,13 +76,26 @@ fixed:
 	having profile pictures may be unneccissary but it may make the experience better over all. 
 	
 current goals (in order)
-	get profile working
+	get profile working 
+	-its rough but works
 	
 	figure out different setting options for profile (decide how far we are going with profiles) 
+	-we have a rough idea of how this could work. so far its simply changing the name which is all we need. 
+	
+	-0 new member
+	-1 new member with nickname chosen
+	-2 club member
+	-3 club member elite
+	-4 moderator
+	-5 admin
 	
 	create definition of user powers
+	-see above
 	
 	add blog post type deal by officer rank that uploads on main page. 
+	-blog submission done, needs tested, needs place to upload stuff to(possibly home page?);
+	
+	add customized menu bar for different items(like for example an admin panel etc)
 	
 	add calendar
 	

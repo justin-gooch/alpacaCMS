@@ -12,8 +12,8 @@ $sql = "SELECT `threadList` FROM `threadsViewedTable` WHERE `userId` = '$userId'
 $preparedStatement = $PDO->prepare($sql);
 $preparedStatement->execute();
 $viewedThreads = $preparedStatement->fetchColumn();
-
-
+//$viewedThreads = explode(":", $viewedThreads);
+$viewedThreadsArray = explode(":", $viewedThreads);
 //get all replies to thread
 $sql = "SELECT * FROM `ForumThreads` WHERE `threadId` = '$threadNumber'";
 $preparedStatement = $PDO->prepare($sql);
@@ -42,15 +42,6 @@ foreach($result as $row)
 	array_push($titleArray, $row['title']);
 }
 
-//reverse the arrays for proper placement in thread...
-//$idArray = array_reverse($idArray);
-//$threadIdArray = array_reverse($threadIdArray);
-//$contentArray = array_reverse($contentArray);
-//$permissionArray = array_reverse($permissionArray);
-//$isOPArray = array_reverse($isOPArray);
-//$usernameArray = array_reverse($usernameArray);
-//$titleArray = array_reverse($titleArray);
-
 //get title
 $title = $titleArray[0];
 
@@ -78,7 +69,7 @@ while($i < count($idArray))
 
 echo "</table>"; 
 $i--;
-if(in_array($idArray[$i], $viewedThreads))
+if(in_array($idArray[$i], $viewedThreadsArray))
 {
 	//do nothing
 }

@@ -15,17 +15,17 @@ foreach($result as $row)
 	$email = $row['email'];
 	$nickname = $row['nickname'];
 	$permission = $row['permission'];
-	$aboutMe = $row['aboutMe']
+	$aboutMe = $row['aboutMe'];
 }
-if($permission == 0)
+if($permission < 1)
 {
 	//prompt to change nickname.
-	echo "<textarea id='nickname' placeholder='nickname'></textarea><br><br><textarea id='aboutMe' placeholder='About Me'></textarea><br><br><button id='updateProfileNickname'>Update Profile</button>";
+	echo "<h1>Update Nickname</h1><textarea id='nickname' placeholder='nickname'></textarea><br><br><button id='updateProfile'>Update Profile</button>";
 }
 else
 {
 	//promp to update profile.
-	echo "<textarea id='aboutMe' placeholder='About Me'></textarea><br><br><button id='updateProfile'>Update Profile</button>";
+	echo "Your nickname is" . $nickname;
 }
 
 ?>

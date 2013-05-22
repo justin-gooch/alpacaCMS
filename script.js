@@ -48,4 +48,33 @@ $(document).on('click', '#replyToThread', function(){
 	}
 });
 
+//update profile ajaxy stuff
+$(document).on('click', '#updateProfile', function(){
+	newNickname = $('#nickname').val();
+	newNicknameArray = newNickname.split(' ');
+	newNickname = newNicknameArray.join("%20");
+	newNicknameLink = 'updateProfile.php?nickname=' + newNickname;
+	$('#pageDiv').empty();
+	if($('#pageDiv').html() == '')
+	{
+		$('#pageDiv').load(newNicknameLink);
+	}
+});
+
+//submits blog post through ajax. 
+$(document).on('click', '#submitBlogPost', function(){
+	blogTitle = $('#blogTitle').val();
+	blogTitleArray = blogTitle.split(' ');
+	blogTitle = blogTitleArray.join("%20");
+	blogText = $('#blogText').val();
+	blogTextArray = blogText.split(' ')
+	blogText = blogTextArray.join("%20");
+	newBlogPostLink = 'submitBlogPost.php?blogTitle=' + blogTitle + '&blogText=' + blogText
+	$('#pageDiv').empty();
+	if($('#pageDiv').html() == '')
+	{
+		$('#pageDiv').load(newBlogPostLink);
+	}
+});
+	
 		

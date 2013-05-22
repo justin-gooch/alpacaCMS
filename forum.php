@@ -10,8 +10,8 @@ $preparedStatement = $PDO->prepare($sql);
 $preparedStatement->execute();
 $result=$preparedStatement->fetchColumn();
 $threadsViewedArray = array();
-$result = $result . ":0";
 $threadsViewedArray = explode(":", $result);
+
 
 
 

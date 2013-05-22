@@ -50,6 +50,6 @@ else
 }
 else
 {
-	echo "you do not have permission to post yet, please change your username";
+	echo "you do not have permission to post yet, please change your username <button id='loadMe' href='profile.php'>Here</button>";
 }
 ?>
