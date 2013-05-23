@@ -25,7 +25,7 @@ if($permission < 1)
 else
 {
 	//promp to update profile.
-	echo "Your nickname is" . $nickname;
+	echo "Your nickname is " . $nickname . " in order to prevent abuse, please message a moderator to change your nickname";
 }
 
 ?>

@@ -3,6 +3,7 @@ session_start();
 if (isset($_SESSION['logged'])) {
     $session_open = true;
     $user_email = $_SESSION['email'];
+    $userPermission = $_SESSION['permission'];
     echo "<div id='welcome'>Hello ";
     echo $user_email;
     echo "</div>";
@@ -40,7 +41,7 @@ if (isset($_SESSION['logged'])) {
         padding-bottom: 40px;
       }
     </style>
-    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <!--link href="css/bootstrap-responsive.css" rel="stylesheet">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements 
     			- updated in Bootstrap 2.02 to include the http: -->
@@ -65,7 +66,12 @@ if (isset($_SESSION['logged'])) {
             <ul class="nav">
               <li class="active"><a id ='loadMe' href="index.php">Home</a></li>
 		          <li><a href="forum.php" id='loadMe'>Forum</a></li>
-              <li><a href="404.html">real pictures of extraterestrials</a></li>              
+				  <?php if($userPermission >3){ 
+				  echo '<li><a href="newBlogPost.php" id="loadMe">New Blog Post</a></li>';
+				  } ?>  
+				   <?php if($userPermission >0){ 
+				  echo '<li><a href="profile.php" id="loadMe">User Profile</a></li>';
+				  } ?>         
 		        </ul>
 		        	<?php if ($session_open) { ?>
 		        	

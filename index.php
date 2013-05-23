@@ -1,5 +1,37 @@
 <?php
 require_once 'header.php';
+include_once 'pdoInclude.php';
+
+//sql to pull all blog posts for main page
+$sql = "SELECT * FROM `blogPost`";
+$preparedStatement = $PDO->prepare($sql);
+$preparedStatement->execute();
+$result = $preparedStatement->fetchAll(PDO::FETCH_ASSOC);
+
+//declare arrays for blog posts
+$idArray = array();
+$usernameArray = array();
+$titleArray = array();
+$textArray = array();
+$timestampArray = array();
+
+//puts blog db data into arrays for easy fetching. 
+foreach($result as $row)
+{
+	array_push($idArray, $row['id']);
+	array_push($usernameArray, $row['username']);
+	array_push($titleArray, $row['title']);
+	array_push($textArray, $row['text']);
+	array_push($timestampArray, $row['timestamp']);
+}
+
+//put arrays in reverse order for easier parsing...
+$idArray = array_reverse($idArray);
+$usernameArray = array_reverse($usernameArray);
+$titleArray = array_reverse($titleArray);
+$textArray = array_reverse($textArray);
+$timestampArray = array_reverse($timestampArray);
+//the rest is presentation... saving now though
 ?>
 
 
